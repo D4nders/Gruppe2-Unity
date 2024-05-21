@@ -4,13 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
     public float speed = 5f; // Movement speed
     private Rigidbody2D rb;
     private Animator animator;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
