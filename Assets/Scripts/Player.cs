@@ -67,11 +67,34 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public int health;
+    public int totalHealth = 100;
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        health = Mathf.Clamp(health, 0, totalHealth);
+        uiScript.UpdateHealthBar(totalHealth, health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        throw new NotImplementedException();
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        health = 100;
+        uiScript.UpdateHealthBar(totalHealth, health);
+
         UpdateLevel();
         uiScript.UpdateExpBar(totalExp, previousLevelExp, nextLevelExp);
     }

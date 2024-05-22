@@ -389,7 +389,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: -1
@@ -429,7 +429,7 @@ MonoBehaviour:
   experienceFill: {fileID: 48447299}
   levelText: {fileID: 331471405}
   experienceText: {fileID: 360488940}
-  healthBar: {fileID: 1366707679}
+  healthFill: {fileID: 1366707679}
 --- !u!1 &231179095
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 597144368}
   - component: {fileID: 597144367}
   m_Layer: 5
-  m_Name: MaxHealth
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1637,7 +1637,7 @@ GameObject:
   - component: {fileID: 1366707680}
   - component: {fileID: 1366707679}
   m_Layer: 5
-  m_Name: CurrentHealth
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1683,11 +1683,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e37fa235ce49c5045a5a2013df73327f, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0.57
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2132,6 +2132,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b3a6523f7fc0e4c875acef3d4f47a5, type: 3}
+--- !u!1 &1864412338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864412339}
+  - component: {fileID: 1864412340}
+  m_Layer: 0
+  m_Name: DamageDealer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1864412339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864412338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1864412340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864412338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6e1b734895c040a57c33b1480dfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageInterval: 0.3
 --- !u!1001 &1964416287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2565,3 +2610,4 @@ SceneRoots:
   - {fileID: 386425124}
   - {fileID: 37967383}
   - {fileID: 534246876}
+  - {fileID: 1864412339}

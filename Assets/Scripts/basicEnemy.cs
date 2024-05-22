@@ -7,6 +7,8 @@ public class basicEnemy : Enemy
 {
     private NavMeshAgent agent;
     private Animator animator;
+    private DamageDealer damageDealer;  // Reference to the DamageDealer component
+    public int damage = 5;
 
     private void Start()
     {
@@ -21,6 +23,13 @@ public class basicEnemy : Enemy
         if (animator == null)
         {
             Debug.LogError("No Animator component found on " + gameObject.name);
+        }
+
+        damageDealer = FindObjectOfType<DamageDealer>();  // Find the DamageDealer in the scene
+
+        if (damageDealer == null)
+        {
+            Debug.LogError("No DamageDealer component found in the scene!");
         }
 
         agent.updateRotation = false;
@@ -45,5 +54,13 @@ public class basicEnemy : Enemy
         // Set animator parameters
         animator.SetFloat("X", direction.x);
         animator.SetFloat("Y", direction.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && damageDealer != null)
+        {
+            damageDealer.DamagePlayer(damage);
+        }
     }
 }

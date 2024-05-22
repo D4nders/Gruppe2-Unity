@@ -24,4 +24,10 @@ public class UIScript : MonoBehaviour
     {
         levelText.text = level.ToString();
     }
+
+    public Image healthFill;
+    public void UpdateHealthBar(int totalHealth, int health)
+    {
+        healthFill.fillAmount = (float)health / totalHealth;
+    }
 }
