@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public abstract class Enemy : MonoBehaviour
 {
     protected Player player;
+    protected int health, totalHealth;
 
     public void SetPlayer(Player player)
     {
@@ -21,11 +22,11 @@ public abstract class Enemy : MonoBehaviour
             Debug.LogError("No Player object found in the scene!");
         }
     }
-
-    public int health = 100;
+    
     public virtual void TakeDamage(int damage)
     {
         health -= damage;
+        health = Mathf.Clamp(health, 0, totalHealth);
         if (health <= 0)
         {
             Die();

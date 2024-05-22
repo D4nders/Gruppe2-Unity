@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 public abstract class Weapon : MonoBehaviour
 {
     public GameObject prefab;
-    public float damage;
+    public int damage;
     public float speed;
     public float cooldownDuration;
     float currentCooldown;

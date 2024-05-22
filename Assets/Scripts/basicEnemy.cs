@@ -11,6 +11,8 @@ public class basicEnemy : Enemy
 
     private void Start()
     {
+        totalHealth = 100;
+        health = totalHealth;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 

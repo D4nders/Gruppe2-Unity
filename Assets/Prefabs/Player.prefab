@@ -255,6 +255,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  movementDirection: {x: 0, y: 0}
+  uiScript: {fileID: 0}
+  experienceCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  currentLevel: 1
+  health: 0
+  totalHealth: 100
 --- !u!58 &3000926704807934192
 CircleCollider2D:
   m_ObjectHideFlags: 0

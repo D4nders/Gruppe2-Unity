@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     public float speed = 5f; // Movement speed
     public Vector2 movementDirection; // Direction
+    public Vector2 lastMovedDirection;
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -73,7 +74,6 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Player took damage: " + damage);
         health -= damage;
         health = Mathf.Clamp(health, 0, totalHealth);
         uiScript.UpdateHealthBar(totalHealth, health);
@@ -94,6 +94,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
+        lastMovedDirection = new Vector2(1, 0f);
+
         health = 100;
         uiScript.UpdateHealthBar(totalHealth, health);
 
@@ -113,6 +115,18 @@ public class Player : MonoBehaviour
             animator.SetFloat("Y", movementDirection.y);
 
             animator.SetBool("IsMoving", true);
+            if (movementDirection.x != 0)
+            {
+                lastMovedDirection = new Vector2(movementDirection.x, 0f);
+            }
+            if (movementDirection.y != 0)
+            {
+                lastMovedDirection = new Vector2(0f, movementDirection.y);
+            }
+            else
+            {
+                lastMovedDirection = new Vector2(movementDirection.x, movementDirection.y);
+            }
         }
         else
         {
