@@ -10,7 +10,7 @@ public abstract class Weapon : MonoBehaviour
     public int damage;
     public float speed;
     public float cooldownDuration;
-    float currentCooldown;
+    protected float currentCooldown;
 
     protected Player player;
 
