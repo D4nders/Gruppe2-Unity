@@ -111,22 +111,11 @@ public class Player : MonoBehaviour
         movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
         if (movementDirection.x != 0 || movementDirection.y != 0)
         {
+            lastMovedDirection = new Vector2(movementDirection.x, movementDirection.y);
             animator.SetFloat("X", movementDirection.x);
             animator.SetFloat("Y", movementDirection.y);
 
             animator.SetBool("IsMoving", true);
-            if (movementDirection.x != 0)
-            {
-                lastMovedDirection = new Vector2(movementDirection.x, 0f);
-            }
-            if (movementDirection.y != 0)
-            {
-                lastMovedDirection = new Vector2(0f, movementDirection.y);
-            }
-            else
-            {
-                lastMovedDirection = new Vector2(movementDirection.x, movementDirection.y);
-            }
         }
         else
         {
