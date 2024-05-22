@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,49 @@ public class Player : MonoBehaviour
     public float speed = 5f; // Movement speed
     private Rigidbody2D rb;
     private Animator animator;
+
+    public UIScript uiScript;
+    [SerializeField] AnimationCurve experienceCurve;
+    public int currentLevel = 1;
+    private int totalExp;
+    private int previousLevelExp;
+    private int nextLevelExp;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Exp"))
+        {
+            Experience orb = other.GetComponent<Experience>();
+            if (orb != null)
+            {
+                AddExp(orb.expValue);
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
+    public void AddExp(int amount)
+    {
+        totalExp += amount;
+        CheckForLevelUp();
+        uiScript.UpdateExpBar(totalExp, previousLevelExp, nextLevelExp);
+    }
+
+    private void CheckForLevelUp()
+    {
+        while (totalExp >= nextLevelExp) // while-løkke for å håndtere flere nivåopprykk på en gang
+        {
+            currentLevel++;
+            UpdateLevel();
+        }
+    }
+
+    private void UpdateLevel()
+    {
+        previousLevelExp = (int)experienceCurve.Evaluate(currentLevel);
+        nextLevelExp = (int)experienceCurve.Evaluate(currentLevel + 1);
+        uiScript.UpdateLevelText(currentLevel);
+    }
 
     private void Awake()
     {
@@ -28,6 +72,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        UpdateLevel();
+        uiScript.UpdateExpBar(totalExp, previousLevelExp, nextLevelExp);
     }
 
     void Update()
