@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public static Player Instance { get; private set; }
 
     public float speed = 5f; // Movement speed
+    public Vector2 movementDirection; // Direction
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -105,11 +106,11 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized * speed;
-        if (movement.x != 0 || movement.y != 0)
+        movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
+        if (movementDirection.x != 0 || movementDirection.y != 0)
         {
-            animator.SetFloat("X", movement.x);
-            animator.SetFloat("Y", movement.y);
+            animator.SetFloat("X", movementDirection.x);
+            animator.SetFloat("Y", movementDirection.y);
 
             animator.SetBool("IsMoving", true);
         }
@@ -118,6 +119,6 @@ public class Player : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
 
-        rb.velocity = movement;
+        rb.velocity = movementDirection * speed;
     }
 }
