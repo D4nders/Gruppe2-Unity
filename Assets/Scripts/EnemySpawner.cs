@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public List<GameObject> enemyPrefabs; // List of different enemy prefabs
     public float spawnInterval = 3f;
+    private Player player;
 
     private float nextSpawnTime = 0f;
     private List<GameObject> spawnedEnemies = new List<GameObject>(); // List to keep track of spawned enemies
@@ -14,6 +15,11 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        player = FindObjectOfType<Player>();
+        if (player == null)
+        {
+            Debug.LogWarning("No player object found.");
+        }
     }
 
     void Update()
@@ -42,17 +48,6 @@ public class EnemySpawner : MonoBehaviour
         // Instantiate the enemy and add it to the list of spawned enemies
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         spawnedEnemies.Add(spawnedEnemy);
-
-        // Assign the player reference to the spawned enemy
-        Enemy enemyScript = spawnedEnemy.GetComponent<Enemy>();
-        if (enemyScript != null)
-        {
-            enemyScript.player = Player.Instance.transform;
-        }
-        else
-        {
-            Debug.LogWarning("The spawned enemy does not have an Enemy component.");
-        }
     }
 
     Vector2 GetRandomSpawnPosition()

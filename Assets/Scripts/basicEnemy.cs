@@ -7,8 +7,7 @@ public class basicEnemy : Enemy
 {
     private NavMeshAgent agent;
     private Animator animator;
-    private DamageDealer damageDealer;  // Reference to the DamageDealer component
-    public int damage = 5;
+    public Vector2 playerPosition;
 
     private void Start()
     {
@@ -25,13 +24,6 @@ public class basicEnemy : Enemy
             Debug.LogError("No Animator component found on " + gameObject.name);
         }
 
-        damageDealer = FindObjectOfType<DamageDealer>();  // Find the DamageDealer in the scene
-
-        if (damageDealer == null)
-        {
-            Debug.LogError("No DamageDealer component found in the scene!");
-        }
-
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
@@ -41,7 +33,8 @@ public class basicEnemy : Enemy
         if (player != null)
         {
             // player is inherited from the parent class
-            agent.SetDestination(player.position);
+            playerPosition = player.transform.position;
+            agent.SetDestination(playerPosition);
             UpdateAnimator();
         }
     }
@@ -49,18 +42,27 @@ public class basicEnemy : Enemy
     private void UpdateAnimator()
     {
         // Calculate direction vector
-        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 position = transform.position;
+        Vector2 direction = (playerPosition - position).normalized;
 
         // Set animator parameters
         animator.SetFloat("X", direction.x);
         animator.SetFloat("Y", direction.y);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public int damage = 5; // Damage the enemy inflicts on the player
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player") && damageDealer != null)
+        Debug.Log("Enemy collided with something: " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Player"))
         {
-            damageDealer.DamagePlayer(damage);
+            Debug.Log("Collided with Player");
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
         }
     }
 }

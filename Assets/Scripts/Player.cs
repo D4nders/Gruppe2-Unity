@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("Player took damage: " + damage);
         health -= damage;
         health = Mathf.Clamp(health, 0, totalHealth);
         uiScript.UpdateHealthBar(totalHealth, health);
