@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    // Laget for å kunne ha flere fiender i spawn logikken
     public List<GameObject> enemyPrefabs; // List of different enemy prefabs
     public float spawnInterval = 0.3f;
     private Player player;
