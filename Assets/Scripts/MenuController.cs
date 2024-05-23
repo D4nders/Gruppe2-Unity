@@ -9,7 +9,7 @@ public class MenuController : Scene_Manager
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused) // Or your preferred pause key
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
             TogglePause();
         }
