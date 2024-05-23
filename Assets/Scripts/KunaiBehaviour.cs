@@ -14,6 +14,6 @@ public class KunaiBehaviour : ProjectileWeaponBehaviour
 
     private void Update()
     {
-        
+        transform.position += direction * wk.speed * Time.deltaTime;
     }
 }

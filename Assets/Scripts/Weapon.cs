@@ -13,10 +13,12 @@ public abstract class Weapon : MonoBehaviour
     protected float currentCooldown;
 
     protected Player player;
+    protected Enemy enemy;
 
     protected virtual void Start()
     {
         player = FindObjectOfType<Player>();
+        enemy = FindObjectOfType<Enemy>();
         currentCooldown = cooldownDuration;
     }
 

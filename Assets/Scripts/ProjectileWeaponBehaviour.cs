@@ -12,16 +12,13 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         Destroy(gameObject, destroyAfterSeconds);
     }
 
-    public void DirectionChecker(Vector3 dir)
+    public void SetDirection(Vector3 dir)
     {
         direction = dir;
 
-        float directionX = direction.x;
-        float directionY = direction.y;
-
-        float angle = (Mathf.Atan2(directionY, directionX) * Mathf.Rad2Deg);
-
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
+        transform.rotation = targetRotation;
+        transform.Rotate(0f, 0f, 90f);
     }
     protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {

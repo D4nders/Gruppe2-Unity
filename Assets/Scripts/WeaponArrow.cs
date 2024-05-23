@@ -18,6 +18,6 @@ public class WeaponArrow : Weapon
 
         GameObject spawnedArrow = Instantiate(prefab);
         spawnedArrow.transform.position = transform.position; // Set position to parent position
-        spawnedArrow.GetComponent<ArrowBehaviour>().DirectionChecker(player.lastMovedDirection);
+        spawnedArrow.GetComponent<ArrowBehaviour>().SetDirection(player.lastMovedDirection);
     }
 }

@@ -498,6 +498,54 @@ MonoBehaviour:
   damage: 0
   speed: 10
   cooldownDuration: 1
+--- !u!1 &224008030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224008031}
+  - component: {fileID: 224008032}
+  m_Layer: 0
+  m_Name: Kunai Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &224008031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224008030}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2837072102913958107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &224008032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224008030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eaf9d730ab7df24c90f462b564f935b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3516532594399209025, guid: d1a2373d8d9564b45a21875d46fbb433, type: 3}
+  damage: 100
+  speed: 10
+  cooldownDuration: 3
 --- !u!1 &331471403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07426112a6d2f5f4fb9c70226697b501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagsToPreserve:
+  - GameController
   pauseMenuCanvas: {fileID: 478536653}
 --- !u!1 &1133569239
 GameObject:
@@ -12211,6 +12261,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2837072103063766841, guid: e4666a3c0a134cb478bf710745a96255, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1790819916}
+    - targetCorrespondingSourceObject: {fileID: 2837072103063766841, guid: e4666a3c0a134cb478bf710745a96255, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 224008031}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4666a3c0a134cb478bf710745a96255, type: 3}
 --- !u!4 &2837072102913958107 stripped
