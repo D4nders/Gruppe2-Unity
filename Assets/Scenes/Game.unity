@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 870698019}
   m_Layer: 0
   m_Name: MenuAudioSource
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1482,7 +1482,7 @@ GameObject:
   - component: {fileID: 1062264057}
   m_Layer: 0
   m_Name: AudioContoller
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1529,7 +1529,7 @@ GameObject:
   - component: {fileID: 1106263347}
   m_Layer: 0
   m_Name: MenuController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12006,7 +12006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5615662828196926542, guid: eba436893d8105c42bfcd233359e1037, type: 3}
       propertyPath: spawnInterval
-      value: 3
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5615662828196926543, guid: eba436893d8105c42bfcd233359e1037, type: 3}
       propertyPath: m_LocalPosition.x

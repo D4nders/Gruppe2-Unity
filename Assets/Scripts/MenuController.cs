@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuController : MonoBehaviour
+public class MenuController : Scene_Manager
 {
     public static bool isPaused = false;
     public GameObject pauseMenuCanvas;
@@ -24,7 +24,7 @@ public class MenuController : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Quitting game...");
-        Application.Quit(); // Quits the application
+        TogglePause();
+        SwitchScene("MainMenu");
     }
 }
