@@ -6,9 +6,11 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 {
     protected Vector3 direction;
     public float destroyAfterSeconds;
+    protected MusicController music;
 
     protected virtual void Start()
     {
+        music = FindObjectOfType<MusicController>();
         Destroy(gameObject, destroyAfterSeconds);
     }
 

@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
 {
     protected Player player;
     protected int health, totalHealth;
+    protected MusicController music;
 
     public void SetPlayer(Player player)
     {
@@ -16,6 +17,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Awake()
     {
+        music = FindObjectOfType<MusicController>();
         player = FindObjectOfType<Player>();
         if (player == null)
         {
@@ -35,6 +37,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        music.PlayEnemyKill();
         Destroy(gameObject); // Basic destruction logic
     }
 }

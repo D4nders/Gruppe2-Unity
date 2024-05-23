@@ -17,9 +17,6 @@ public class Player : MonoBehaviour
 
     private MenuController mc;
 
-    public AudioClip level5;
-    public AudioClip level10;
-
     public UIScript uiScript;
     [SerializeField] AnimationCurve experienceCurve;
     public int currentLevel = 1;
@@ -58,12 +55,12 @@ public class Player : MonoBehaviour
             if (currentLevel == 5)
             {
                 enemySpawner.SetSpawnInterval(0.1f);
-                music.PlayNewMusic(level5);
+                music.PlayLevel5();
             }
             if (currentLevel == 10)
             {
                 enemySpawner.SetSpawnInterval(0.05f);
-                music.PlayNewMusic(level10);
+                music.PlayLevel10();
             }
             if (currentLevel == 15)
             {

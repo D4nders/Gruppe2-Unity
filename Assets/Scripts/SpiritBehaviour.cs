@@ -12,7 +12,7 @@ public class SpiritBehaviour : ProjectileWeaponBehaviour
     {
         base.Start();
         ws = FindObjectOfType<WeaponSpirit>();
-
+        music.PlayFireSpirit();
     }
 
     void Update()

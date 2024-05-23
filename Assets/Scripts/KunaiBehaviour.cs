@@ -10,6 +10,7 @@ public class KunaiBehaviour : ProjectileWeaponBehaviour
     {
         base.Start();
         wk = FindObjectOfType<WeaponKunai>();
+        music.PlayFireKunai();
     }
 
     private void Update()

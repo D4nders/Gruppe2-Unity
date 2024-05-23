@@ -9,6 +9,7 @@ public class ArrowBehaviour : ProjectileWeaponBehaviour
     {
         base.Start();
         wa = FindObjectOfType<WeaponArrow>();
+        music.PlayFireArrow();
     }
 
     void Update()

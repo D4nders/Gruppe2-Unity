@@ -7,6 +7,13 @@ public class MusicController : MonoBehaviour
     public AudioSource source;
     public AudioClip QuitGameSound;
     public AudioClip PlayGameSound;
+    public AudioClip level5;
+    public AudioClip level10;
+    public AudioClip enemyKill;
+    public AudioClip playerDamage;
+    public AudioClip fireArrow;
+    public AudioClip fireKunai;
+    public AudioClip fireSpirit;
 
     public void PlayQuitGameSound()
     {
@@ -32,10 +39,42 @@ public class MusicController : MonoBehaviour
         }
     }
 
-    public void PlayNewMusic(AudioClip newMusic)
+    public void PlayLevel5()
     {
         source.Stop();
-        source.clip = newMusic;
+        source.clip = level5;
         source.Play();
+    }
+
+    public void PlayLevel10()
+    {
+        source.Stop();
+        source.clip = level10;
+        source.Play();
+    }
+
+    public void PlayEnemyKill()
+    {
+        source.PlayOneShot(enemyKill);
+    }
+
+    public void PlayPlayerDamage()
+    {
+        source.PlayOneShot(playerDamage);
+    }
+
+    public void PlayFireArrow()
+    {
+        source.PlayOneShot(fireArrow);
+    }
+
+    public void PlayFireSpirit()
+    {
+        source.PlayOneShot(fireSpirit);
+    }
+
+    public void PlayFireKunai()
+    {
+        source.PlayOneShot(fireKunai);
     }
 }
