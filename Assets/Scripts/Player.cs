@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    private MenuController mc;
+
     public UIScript uiScript;
     [SerializeField] AnimationCurve experienceCurve;
     public int currentLevel = 1;
@@ -48,6 +50,21 @@ public class Player : MonoBehaviour
         {
             currentLevel++;
             UpdateLevel();
+            if (currentLevel == 5)
+            {
+                EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
+                enemySpawner.SetSpawnInterval(0.1f);
+            }
+            if (currentLevel == 10)
+            {
+                EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
+                enemySpawner.SetSpawnInterval(0.05f);
+            }
+            if (currentLevel == 15)
+            {
+                mc.SwitchScene("Victory");
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -86,13 +103,15 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        throw new NotImplementedException();
+        mc.SwitchScene("Death");
+        Destroy(gameObject);
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        mc = FindObjectOfType<MenuController>();
 
         lastMovedDirection = new Vector2(1, 0f);
 

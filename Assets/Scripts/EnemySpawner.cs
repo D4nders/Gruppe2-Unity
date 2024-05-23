@@ -90,4 +90,9 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+    public void SetSpawnInterval(float interval)
+    {
+        spawnInterval = interval;
+    }
 }
