@@ -22406,11 +22406,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8cad9556206a3004b9a78798c35c8e0f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -41114,6 +41114,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2837072103063766840, guid: e4666a3c0a134cb478bf710745a96255, type: 3}
+      propertyPath: level5
+      value: 
+      objectReference: {fileID: 8300000, guid: 184db1fef98b17b40a72d30a6176eef0, type: 3}
+    - target: {fileID: 2837072103063766840, guid: e4666a3c0a134cb478bf710745a96255, type: 3}
+      propertyPath: level10
+      value: 
+      objectReference: {fileID: 8300000, guid: cbdb44effa5b54d40acb38817b8f222a, type: 3}
     - target: {fileID: 2837072103063766840, guid: e4666a3c0a134cb478bf710745a96255, type: 3}
       propertyPath: uiScript
       value: 

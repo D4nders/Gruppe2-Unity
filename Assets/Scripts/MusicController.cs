@@ -8,16 +8,6 @@ public class MusicController : MonoBehaviour
     public AudioClip QuitGameSound;
     public AudioClip PlayGameSound;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
-
     public void PlayQuitGameSound()
     {
         if (QuitGameSound != null)
@@ -40,5 +30,12 @@ public class MusicController : MonoBehaviour
         {
             Debug.LogError("AudioSource component is missing.");
         }
+    }
+
+    public void PlayNewMusic(AudioClip newMusic)
+    {
+        source.Stop();
+        source.clip = newMusic;
+        source.Play();
     }
 }
