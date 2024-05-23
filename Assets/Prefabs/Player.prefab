@@ -256,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   movementDirection: {x: 0, y: 0}
+  lastMovedDirection: {x: 0, y: 0}
   uiScript: {fileID: 0}
   experienceCurve:
     serializedVersion: 2
@@ -389,7 +390,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 385883147, guid: 8f2c16f4e0bf35b4e9bf3c3da8eed35a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

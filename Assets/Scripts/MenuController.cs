@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static bool isPaused = false;
+    public GameObject pauseMenuCanvas;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused) // Or your preferred pause key
+        {
+            TogglePause();
+        }
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+        pauseMenuCanvas.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0f : 1f; // Pausing the game
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit Game!");
-        Application.Quit();
+        Debug.Log("Quitting game...");
+        Application.Quit(); // Quits the application
     }
 }
