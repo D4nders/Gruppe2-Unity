@@ -56,10 +56,8 @@ public class basicEnemy : Enemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Enemy collided with something: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided with Player");
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
             {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2090894574968416149}
   - component: {fileID: 2090894574968416148}
   - component: {fileID: 2090894574968416147}
+  - component: {fileID: -3430976955341981073}
   - component: {fileID: 2249010877867602300}
   - component: {fileID: 7597641506060423401}
   - component: {fileID: 5623354419433299773}
@@ -84,9 +85,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278b1d0ac47d9434db90530fffee8407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   playerPosition: {x: 0, y: 0}
   damage: 5
+--- !u!114 &-3430976955341981073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090894574968416146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04a8e97e53b33f4082668bc432611d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: ExpSmall
+    itemPrefab: {fileID: 4135077281637696610, guid: a3b3a6523f7fc0e4c875acef3d4f47a5, type: 3}
+    dropRate: 100
 --- !u!50 &2249010877867602300
 Rigidbody2D:
   serializedVersion: 4
