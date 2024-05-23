@@ -4908,6 +4908,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41691ffff526a8b4492970eae0e187de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level1: {fileID: 1046910001}
+  level2: {fileID: 508873276}
+  level3: {fileID: 1722017477}
   experienceFill: {fileID: 48447299}
   levelText: {fileID: 331471405}
   experienceText: {fileID: 360488940}
@@ -10594,7 +10597,7 @@ MonoBehaviour:
   prefab: {fileID: 3516532594399209025, guid: d1a2373d8d9564b45a21875d46fbb433, type: 3}
   damage: 100
   speed: 10
-  cooldownDuration: 3
+  cooldownDuration: 0.5
 --- !u!1 &312266388
 GameObject:
   m_ObjectHideFlags: 0
@@ -104897,7 +104900,7 @@ MonoBehaviour:
   prefab: {fileID: 8752670827685969679, guid: 4ec817260f5fc7648bcd0f40acd0fa29, type: 3}
   damage: 0
   speed: 175
-  cooldownDuration: 5
+  cooldownDuration: 2.5
 --- !u!1 &1835751474
 GameObject:
   m_ObjectHideFlags: 0
