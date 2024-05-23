@@ -50,23 +50,8 @@ public class Player : MonoBehaviour
         {
             currentLevel++;
             UpdateLevel();
-            EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
-            MusicController music = FindObjectOfType<MusicController>();
-            if (currentLevel == 5)
-            {
-                enemySpawner.SetSpawnInterval(0.1f);
-                music.PlayLevel5();
-            }
-            if (currentLevel == 10)
-            {
-                enemySpawner.SetSpawnInterval(0.05f);
-                music.PlayLevel10();
-            }
-            if (currentLevel == 15)
-            {
-                mc.SwitchScene("Victory");
-                Destroy(gameObject);
-            }
+
+            uiScript.UpdateMap(currentLevel, mc);
         }
     }
 
